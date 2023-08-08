@@ -30,8 +30,8 @@ Modal.setAppElement("#root");
 
 export const CalendarModal = () => {
 
-  const {isDateModalOpen, closeDateModal} = useUiStore();
-  const {activeEvent, startSavingEvent} = useCalendarStore();
+  const { isDateModalOpen, closeDateModal } = useUiStore();
+  const { activeEvent, startSavingEvent } = useCalendarStore();
 
   const [formSubmitted, setFormSubmitted] = useState(false);
 
@@ -43,12 +43,12 @@ export const CalendarModal = () => {
   });
 
   useEffect(() => {
-    if ( activeEvent !== null ) {
-        setFormValues({ ...activeEvent });
-    }    
-    
-  }, [ activeEvent ])
-  
+    if (activeEvent !== null) {
+      setFormValues({ ...activeEvent });
+    }
+
+  }, [activeEvent])
+
 
   const titleClass = useMemo(() => {
 
@@ -80,7 +80,7 @@ export const CalendarModal = () => {
     closeDateModal();
   };
 
-  const onSubmit = async(event) => {
+  const onSubmit = async (event) => {
     event.preventDefault();
     setFormSubmitted(true);
 
@@ -98,10 +98,10 @@ export const CalendarModal = () => {
 
     console.log(formValues);
 
-        // TODO: 
-        await startSavingEvent( formValues );
-        closeDateModal();
-        setFormSubmitted(false);
+    // TODO: 
+    await startSavingEvent(formValues);
+    closeDateModal();
+    setFormSubmitted(false);
   }
 
 
